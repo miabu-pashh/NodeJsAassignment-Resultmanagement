@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <h2>Result Management System</h2>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .button {
+            border-radius: 4px;
+            padding: 12px 28px;
+            background-color: #008CBA;
+
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .container {
+            margin: auto;
+            width: 50%;
+            /* border: 3px solid green; */
+            padding: 10px;
+        }
+
+        .navbar-custom {
+            background-color: #8fbc8f;
+            border: 3px solid #556b2f;
+
+        }
+
+        .button1:active {
+            background-color: #f0e68c;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .navbar-custom {
+            height: 80px;
+        }
+
+        .headertekst {
+            left: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<nav class="navbar-custom">
+    <div class="container-fluid">
+
+        <header>
+            <h2 class="headertekst"><b>Result Management System</b></h2>
+
+        </header>
+
+    </div>
+</nav>
+
+<body>
+
+    <span><a href="/home" style="float:right" class="button mt-4 mr-4">Logout</a>
+        <a href="/" style="float:left" class="button mt-4 ml-4">Back</a></span>
+    <br>
+    <br>
+    <br>
+
+
+    <h2 align="center">Find Result</h2>
+
+    <div class="container">
+
+        <form action="/find" method="post">
+            <div class="form-group">
+                <label for="Roll_no">Roll No:</label>
+                <input type="text" class="form-control" id="Roll_no" placeholder="Enter Roll No" name="Roll_no"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input type="text" class="form-control" id="Name" placeholder="Enter Name" name="Name" required>
+            </div>
+
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

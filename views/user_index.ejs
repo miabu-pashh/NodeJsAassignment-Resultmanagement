@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .button {
+            border-radius: 4px;
+            padding: 12px 28px;
+            background-color: #008CBA;
+
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .navbar-custom {
+            background-color: #8fbc8f;
+            border: 3px solid #556b2f;
+
+        }
+
+        .button1:active {
+            background-color: #f0e68c;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .navbar-custom {
+            height: 80px;
+        }
+
+        .headertekst {
+            left: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container {
+            margin: auto;
+            width: 80%;
+            /* border: 3px solid green; */
+            padding: 10px;
+        }
+    </style>
+</head>
+<nav class="navbar-custom">
+    <div class="container-fluid">
+
+        <header>
+            <h2 class="headertekst"><b>Result Management System</b></h2>
+
+        </header>
+
+    </div>
+</nav>
+<a href="/home" style="float:right" class="button mt-4 mr-4">Logout</a>
+
+<body>
+    <a href="/teacher_login" style="float:left" class="button mt-4 ml-4">Back</a>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+
+        <a href="/add" style="float:right" class="button">Add User</a>
+        <br>
+        <h3 align="center"><b>List Of Records</b></h3>
+        <br>
+
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function(user){ %>
+                    <tr>
+                        <td>
+                            <%= user.Roll_no %>
+                        </td>
+                        <td>
+                            <%= user.Name %>
+                        </td>
+                        <td>
+                            <%= user.DateOfBirth %>
+                        </td>
+                        <td>
+                            <%= user.Score %>
+                        </td>
+                        <td>
+                            <a href="edit/<%= user.Student_id %>" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="delete/<%= user.Student_id%>" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
