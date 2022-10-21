@@ -128,13 +128,41 @@ app.get('/try_result',(req, res) =>{
 });
 
 app.post('/save',(req, res) => { 
-    let data = {Roll_no:req.body.Roll_no, Name:req.body.Name, DateOfBirth:req.body.DateOfBirth, Score:req.body.Score};
-    // let data = {name: req.body.name, email: req.body.email, phone_no: req.body.phone_no};
-    let sql = "INSERT INTO result SET ?";
-    let query = connection.query(sql, data,(err, results) => {
-      if(err) throw err;
-      res.redirect('/teacher');
+//     let data = {Roll_no:req.body.Roll_no, Name:req.body.Name, DateOfBirth:req.body.DateOfBirth, Score:req.body.Score};
+//     // let data = {name: req.body.name, email: req.body.email, phone_no: req.body.phone_no};
+//     let sql = "INSERT INTO result SET ?";
+//     let query = connection.query(sql, data,(err, results) => {
+//       if(err) throw err;
+//       res.redirect('/teacher');
+//     });
+	
+	
+	 var roll_Number=req.body.Roll_No;
+    var Name1=req.body.Name;
+    let data = {Roll_No:req.body.Roll_No, Name:req.body.Name, DateOfBirth:req.body.DateOfBirth, Score:req.body.Score};
+
+    connection.query("select * from result where  Roll_No = ? and Name = ?",[roll_Number,Name1] , function(error,rows){
+
+        if(rows.length > 0){
+            res.render("AddStudentError");
+        }
+        else if(roll_Number==Name1){
+            res.render("AddStudentError");
+        }
+        else if(data.DateOfBirth==data.Score){
+            res.render("AddStudentError");
+        }
+        else{
+            let sql = "INSERT INTO result SET ?";
+            let query = connection.query(sql, data,(err, results) => {
+            if(err) throw err;
+            res.redirect('/teacher');
+            });
+
+         }
+
     });
+
 });
 
 app.get('/edit/:userId',(req, res) => {
