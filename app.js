@@ -12,9 +12,14 @@ const encoder = express.urlencoded({
 });
 
 const connection=mysql.createConnection({
-    host:'localhost',
+//     host:'localhost',
+//     user:'root',
+//     password:'password',
+//     database:'resultmanagement'
+	
+	host:'localhost',
     user:'root',
-    password:'password',
+    password:'17241A0332maibu@',
     database:'resultmanagement'
 });
 
